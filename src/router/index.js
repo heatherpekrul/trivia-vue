@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Firebase from 'firebase';
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
+import Logout from '../views/Logout.vue';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login,
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: Logout,
   },
 ];
 

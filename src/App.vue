@@ -3,8 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <a href="#" @click="logout">Logout</a>
+      <router-link to="/login" v-show="!user">Login</router-link> |
+      <router-link to="/logout" v-show="user">Logout</router-link>
     </div>
     <router-view/>
   </div>
@@ -12,31 +12,23 @@
 
 <script>
 import Firebase from 'firebase';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'App',
-  methods: {
-    login() {
-      const provider = new Firebase.auth.GoogleAuthProvider();
-      Firebase.auth().signInWithPopup(provider).then((result) => {
-        console.log(result);
-        this.$router.replace('home');
-      }).catch((err) => {
-        console.log(err);
-      });
-    },
-    async logout() {
-      try {
-        await Firebase.auth().signOut();
-        console.log('signed out');
-      } catch (e) {
-        console.log(e);
-      }
-    },
+  created() {
+    if (!this.$store.user) {
+      const { currentUser } = Firebase.auth();
+      this.$store.commit('userUpdate', currentUser);
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'user',
+    ]),
   },
 };
 </script>
-
 
 <style lang="scss">
 @import 'assets/scss';

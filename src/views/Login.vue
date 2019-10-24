@@ -6,19 +6,12 @@
 </template>
 
 <script>
-import Firebase from 'firebase';
-
 export default {
   name: 'login',
   methods: {
-    login() {
-      const provider = new Firebase.auth.GoogleAuthProvider();
-      Firebase.auth().signInWithPopup(provider).then((result) => {
-        console.log(result);
-        this.$router.replace('home');
-      }).catch((err) => {
-        console.log(err);
-      });
+    async login() {
+      await this.$store.dispatch('login');
+      this.$router.push('/');
     },
   },
 };
