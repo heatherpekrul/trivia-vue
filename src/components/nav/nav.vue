@@ -5,7 +5,7 @@
         trivia
       </li>
       <li>
-        <router-link to="/">Home</router-link>
+        <router-link to="/home">Home</router-link>
       </li>
       <li v-show="!user">
         <router-link to="/login">Login</router-link>

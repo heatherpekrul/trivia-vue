@@ -12,7 +12,7 @@ export default {
     async login() {
       try {
         await this.$store.dispatch('login');
-        this.$router.push('home');
+        this.$router.push('/home');
       } catch (e) {
         console.log('login catch:', e);
       }

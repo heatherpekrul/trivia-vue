@@ -24,16 +24,11 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    login({ commit }) {
-      console.log('check1');
+    async login({ commit }) {
       const provider = new Firebase.auth.GoogleAuthProvider();
-      console.log('check2');
-      Firebase.auth().signInWithPopup(provider).then((result) => {
-        console.log('check3', result.additionalUserInfo.profile);
+      await Firebase.auth().signInWithPopup(provider).then((result) => {
         commit('userUpdate', result.additionalUserInfo.profile);
-        this.$router.push('home');
       }).catch((err) => {
-        console.log('check4');
         console.log(err);
       });
     },
