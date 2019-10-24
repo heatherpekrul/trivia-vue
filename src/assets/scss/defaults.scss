@@ -16,8 +16,8 @@ body {
   @include font-primary();
   font-size: $font-base-size * 0.85;
   line-height: 1.4;
-  background: $color-midnight;
-  color: $color-white;
+  background: $color-wild-sand;
+  color: $color-black;
   margin: 0;
 
   @include breakpoint() {
@@ -26,18 +26,8 @@ body {
 }
 
 a {
-  @include font-accent();
   color: $color-party-girl;
-  text-decoration: none;
-  text-transform: uppercase;
-  background: rgba($color-black, 0.2);
-  transition: background-color 0.2s;
-  display: inline-block;
-  padding: 0 0.5em;
-
-  &:hover {
-    background: rgba($color-black, 0.5);
-  }
+  text-decoration: underline;
 }
 
 h1,

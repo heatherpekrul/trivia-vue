@@ -1,18 +1,13 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/login" v-show="!user">Login</router-link> |
-      <router-link to="/logout" v-show="user">Logout</router-link>
-    </div>
+    <Nav />
     <router-view/>
   </div>
 </template>
 
 <script>
 import Firebase from 'firebase';
-import { mapGetters } from 'vuex';
+import Nav from '@/components/nav/nav.vue';
 
 export default {
   name: 'App',
@@ -22,15 +17,14 @@ export default {
       this.$store.commit('userUpdate', currentUser);
     }
   },
-  computed: {
-    ...mapGetters([
-      'user',
-    ]),
+  components: {
+    Nav,
   },
 };
 </script>
 
 <style lang="scss">
 @import 'assets/scss';
+@import '~normalize.css';
 @import 'assets/scss/defaults';
 </style>

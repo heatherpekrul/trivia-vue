@@ -1,23 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans&display=swap');
 
 // Typography Settings
 $font-base-size: 16px;
 
 // Font Faces
-@mixin font-inconsolata {
-  font-family: 'Inconsolata', monospace;
+@mixin font-josefin-sans {
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-@mixin font-lato {
-  font-family: 'Lato', sans-serif;
+@mixin font-open-sans {
+  font-family: 'Open Sans', sans-serif;
 }
 
 // Abstracted Fonts
 @mixin font-primary {
-  @include font-lato();
+  @include font-open-sans();
 }
 
 @mixin font-accent {
-  @include font-inconsolata();
-  letter-spacing: 0.05em;
+  @include font-josefin-sans();
 }

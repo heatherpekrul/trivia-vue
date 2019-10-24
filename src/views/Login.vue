@@ -10,8 +10,12 @@ export default {
   name: 'login',
   methods: {
     async login() {
-      await this.$store.dispatch('login');
-      this.$router.push('/');
+      try {
+        await this.$store.dispatch('login');
+        this.$router.push('home');
+      } catch (e) {
+        console.log('login catch:', e);
+      }
     },
   },
 };
