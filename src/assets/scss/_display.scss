@@ -1,0 +1,15 @@
+@mixin flex-container {
+  max-width: 960px;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.container {
+  @include flex-container();
+}
+
+@mixin breakpoint() {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
